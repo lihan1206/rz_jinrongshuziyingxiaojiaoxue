@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: jryx_db
+    environment:
+      POSTGRES_DB: finance_marketing_lab
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pg_store:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d finance_marketing_lab"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: /Users/lh/code/jinrongshuziyingxiaojiaoxue/backend
+    container_name: jryx_backend
+    environment:
+      APP_TITLE: 金融数字营销教学实训系统
+      SECRET_KEY: finance-marketing-secret
+      TOKEN_EXPIRE_MINUTES: "720"
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/finance_marketing_lab
+      STORAGE_DIR: /app/uploads
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - upload_store:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: /Users/lh/code/jinrongshuziyingxiaojiaoxue/frontend
+    container_name: jryx_frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      - backend
+
+volumes:
+  pg_store:
+  upload_store:

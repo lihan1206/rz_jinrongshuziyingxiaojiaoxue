@@ -1,0 +1,192 @@
+:root {
+  color: #1f2937;
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.18), transparent 26%),
+    linear-gradient(180deg, #fffaf1 0%, #f6fbfa 56%, #eef6f5 100%);
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: transparent;
+}
+
+a {
+  color: #0f766e;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.auth-wrap {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.auth-card {
+  width: min(100%, 480px);
+  border-radius: 30px;
+  box-shadow: 0 24px 80px rgba(148, 163, 184, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 24px !important;
+  font-size: clamp(28px, 5vw, 38px) !important;
+  letter-spacing: 1px;
+}
+
+.auth-bg {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(20px);
+}
+
+.auth-bg-one {
+  width: 320px;
+  height: 320px;
+  top: 8%;
+  left: 10%;
+  background: rgba(251, 191, 36, 0.22);
+}
+
+.auth-bg-two {
+  width: 280px;
+  height: 280px;
+  right: 8%;
+  bottom: 10%;
+  background: rgba(15, 118, 110, 0.18);
+}
+
+.workbench {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.app-sider {
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.96), rgba(15, 23, 42, 0.96)) !important;
+}
+
+.brand-box {
+  padding: 28px 20px 16px;
+  color: #f8fafc;
+}
+
+.brand-box .ant-typography,
+.brand-box .ant-typography p {
+  color: #f8fafc;
+}
+
+.top-bar {
+  height: auto;
+  min-height: 78px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top-bar .ant-typography {
+  margin: 0 !important;
+}
+
+.page-shell {
+  padding: 24px;
+}
+
+.hero-board {
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.88)),
+    linear-gradient(120deg, rgba(15, 118, 110, 0.08), rgba(251, 191, 36, 0.08));
+  box-shadow: 0 18px 48px rgba(148, 163, 184, 0.16);
+}
+
+.soft-card,
+.glow-card,
+.inline-panel {
+  border-radius: 24px;
+  box-shadow: 0 14px 36px rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.glow-card {
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(251, 191, 36, 0.16), transparent 38%),
+    rgba(255, 255, 255, 0.96);
+}
+
+.stat-card .ant-statistic {
+  padding-top: 6px;
+}
+
+.center-spin {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.danger-sheet {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+
+.danger-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fee2e2, #fff7ed);
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.danger-tip {
+  color: #b45309;
+  background: #fffbeb;
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.collapse-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 992px) {
+  .top-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-shell {
+    padding: 18px;
+  }
+}
