@@ -1,4 +1,4 @@
-import { App as AntApp, ConfigProvider, theme, notification } from "antd";
+import { App as AntApp, ConfigProvider, notification, theme } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import { useEffect, useState } from "react";
 
@@ -22,6 +22,7 @@ function App() {
       setLoading(false);
       return;
     }
+
     authApi
       .me()
       .then((res) => setProfile(res))
@@ -76,9 +77,9 @@ function App() {
       theme={{
         algorithm: theme.defaultAlgorithm,
         token: {
-          colorPrimary: "#0f766e",
-          colorInfo: "#0f766e",
-          borderRadius: 20,
+          colorPrimary: "#d97706",
+          colorInfo: "#c2410c",
+          borderRadius: 18,
           fontFamily: `"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif`,
         },
       }}
@@ -87,7 +88,7 @@ function App() {
         {holder}
         <ErrorFallback>
           {loading ? (
-            <div className="page-shell" />
+            <div className="page-shell page-shell--loading" />
           ) : profile ? (
             profile.role === "teacher" ? (
               <TeacherHome profile={profile} onLogout={logoutNow} />

@@ -9,11 +9,12 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
+FROM node:20-alpine
 
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
+
+COPY --from=builder /app ./
 
 EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]

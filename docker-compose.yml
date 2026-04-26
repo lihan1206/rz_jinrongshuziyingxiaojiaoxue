@@ -18,7 +18,7 @@ services:
 
   backend:
     build:
-      context: /Users/lh/code/jinrongshuziyingxiaojiaoxue/backend
+      context: ./backend
     container_name: jryx_backend
     environment:
       APP_TITLE: 金融数字营销教学实训系统
@@ -36,7 +36,7 @@ services:
 
   frontend:
     build:
-      context: /Users/lh/code/jinrongshuziyingxiaojiaoxue/frontend
+      context: ./frontend
     container_name: jryx_frontend
     ports:
       - "${FRONTEND_PORT:-3000}:3000"

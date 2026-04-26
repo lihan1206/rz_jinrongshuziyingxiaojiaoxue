@@ -24,8 +24,8 @@ export class ErrorFallback extends Component<Props, State> {
         <div className="page-shell">
           <Result
             status="error"
-            title="页面暂时无法继续显示"
-            subTitle="你可以刷新页面后重试，我们已经拦下了这次异常。"
+            title="页面暂时无法展示"
+            subTitle="你可以刷新页面再试一次，我们已经拦住了这次异常。"
             extra={
               <Button type="primary" onClick={() => window.location.reload()}>
                 重新载入
@@ -38,4 +38,3 @@ export class ErrorFallback extends Component<Props, State> {
     return this.props.children;
   }
 }
-
